@@ -5,6 +5,9 @@
         <group>
             <file>file:/Users/linnea/NetBeansProjects/ik2018-Inlamning_1/src/MAS/DataAgent.java</file>
             <file>file:/Users/linnea/NetBeansProjects/ik2018-Inlamning_1/src/MAS/WhiteWine.java</file>
+            <file>file:/Users/linnea/NetBeansProjects/ik2018-Inlamning_1/src/MAS/ClassificationAgent.java</file>
+            <file>file:/Users/linnea/NetBeansProjects/ik2018-Inlamning_1/src/MAS/winequality-white.csv</file>
+            <file>file:/Users/linnea/NetBeansProjects/ik2018-Inlamning_1/src/MAS/mottagetDataCsv.csv</file>
         </group>
     </open-files>
 </project-private>
