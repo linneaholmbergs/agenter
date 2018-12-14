@@ -3,13 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package MAS.inlamning1;
+package MAS;
+
+import java.io.Serializable;
 
 /**
  *
  * @author linnea
  */
-public class WhiteWine {
+public class WhiteWine implements Serializable{
     
     private double fixedAcidity;
     private double volatileAcidity;

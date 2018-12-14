@@ -5,20 +5,22 @@
  */
 package MAS;
 
+import jade.core.AID;
 import jade.core.Agent;
+import jade.core.behaviours.OneShotBehaviour;
+import jade.lang.acl.ACLMessage;
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+
 import java.io.IOException;
-import java.io.Reader;
-import java.net.URI;
+import java.io.Serializable;
+
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
 import java.util.ArrayList;
-import java.util.Iterator;
+
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -33,15 +35,28 @@ public class DataAgent extends Agent {
 
     public void setup() {
 
-     
         try {
-            List<WhiteWine> vitaViner = readCSV();
+            List<WhiteWine> listan = readCSV();
             
-            for(WhiteWine vin:vitaViner){
-                System.out.println(vin.toString());
-            }
+            addBehaviour(new OneShotBehaviour(this) {
+                
+                @Override
+                public void action(){
+                    ACLMessage aclmsg = new ACLMessage(ACLMessage.REQUEST);
+                    aclmsg.addReceiver(new AID("anton", AID.ISLOCALNAME));
+                    try {
+                        aclmsg.setContentObject((Serializable) listan);
+                    } catch (IOException ex) {
+                        Logger.getLogger(DataAgent.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    send(aclmsg);
+               
             
-        } catch (IOException ex) {
+                    
+                    
+                    
+                }});       
+                    } catch (IOException ex) {
             Logger.getLogger(DataAgent.class.getName()).log(Level.SEVERE, null, ex);
         }
       
